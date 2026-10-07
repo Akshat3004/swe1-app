@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.sqlite3-*
+staticfiles/
+.env
+.env.*
+*.pem
+*.key
+.aws/
+.elasticbeanstalk/
+.DS_Store
+*.log
+*.zip
