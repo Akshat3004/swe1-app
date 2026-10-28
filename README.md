@@ -82,3 +82,4 @@ This minimal setup serves HTTP. Configuring HTTPS is a separate hosting step; us
 - [Django tutorial, part 4](https://docs.djangoproject.com/en/6.1/intro/tutorial04/)
 - [AWS Django deployment guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html)
 - [AWS platform hooks](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-linux-extend.hooks.html)
+CI verification completed.
