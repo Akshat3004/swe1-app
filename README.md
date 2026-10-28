@@ -1,5 +1,16 @@
 # SWE1 Django polls
 
+[![Build Status](https://app.travis-ci.com/Akshat3004/swe1-app.svg?branch=main)](https://app.travis-ci.com/github/Akshat3004/swe1-app)
+[![Coverage Status](https://coveralls.io/repos/github/Akshat3004/swe1-app/badge.svg?branch=main)](https://coveralls.io/github/Akshat3004/swe1-app?branch=main)
+
+## Continuous integration
+
+Travis CI runs Black formatting validation, Flake8 linting, Django system checks, and the Django test suite under Coverage.py on pushes and pull requests. Passing builds on `main` report coverage to Coveralls and deploy to Elastic Beanstalk when AWS credentials and deployment settings have been configured in Travis.
+
+Set these environment variables in Travis repository settings (keep values private and disable exposure to pull requests): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`, `AWS_EB_APPLICATION`, `AWS_EB_ENVIRONMENT`, and `AWS_EB_BUCKET`. The bucket is the S3 bucket for deployment artifacts in the same AWS region. Create the Elastic Beanstalk application and environment before enabling deployment. Set `DJANGO_SECRET_KEY` in Elastic Beanstalk environment properties as described below.
+
+To reproduce the checks locally, install `black flake8 coverage coveralls`, then run `black --check .`, `flake8 .`, and `coverage run --source=mysite,polls manage.py test`.
+
 A small polls application based on parts 1-4 of the [official Django tutorial](https://docs.djangoproject.com/en/6.1/intro/tutorial01/).
 
 Users can open a question, select an answer, submit a vote, and see the vote totals. Questions and choices can also be managed through Django's admin site.

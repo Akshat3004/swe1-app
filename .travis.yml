@@ -1,0 +1,31 @@
+language: python
+dist: jammy
+python:
+  - "3.12"
+
+install:
+  - pip install -r requirements.txt
+  - pip install black flake8 coverage coveralls
+
+script:
+  - black --check .
+  - flake8 .
+  - python manage.py check
+  - coverage run --source=mysite,polls manage.py test
+  - coverage report
+
+after_success:
+  - coveralls
+
+deploy:
+  provider: elasticbeanstalk
+  edge: true
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  region: $AWS_DEFAULT_REGION
+  app: $AWS_EB_APPLICATION
+  env: $AWS_EB_ENVIRONMENT
+  bucket: $AWS_EB_BUCKET
+  on:
+    branch: main
+
